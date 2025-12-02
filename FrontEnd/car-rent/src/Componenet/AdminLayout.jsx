@@ -29,7 +29,7 @@ const AdminLayout = () => {
   return (
     <div className="flex min-h-screen">
       <div className="w-60 mt-25 mb-2 bg-gray-800 text-white flex flex-col p-6">
-        <h2 className="text-2xl font-bold mb-8">Admin Menu</h2>
+        <h2 className=" font-bold mb-8 text-5xl">Admin Menu</h2>
           <Link to="/admin" className="mb-4 text-center hover:text-gray-300 bg-gradient-to-r from-green-500 to-blue-600
                           hover:from-blue-600 hover:to-green-500
                           transition-all duration-300 active:scale-95 shadow-md">Dashboard</Link>
