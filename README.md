@@ -53,17 +53,6 @@ cd Backend
 npm install
 ```
 
-* Create a `.env` file with:
-
-```
-PORT=2530
-SECRET_KEY=mysecretkey
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=
-DB_NAME=CarRentDb
-DB_PORT=3306
-```
 
 * Start backend server:
 
