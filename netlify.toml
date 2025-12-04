@@ -1,7 +1,9 @@
 [build]
   base = "FrontEnd/car-rent"
-  publish = "dist"
+  publish = "FrontEnd/car-rent/dist"
   command = "npm run build"
 
-[dev]
-  port = 5173
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
