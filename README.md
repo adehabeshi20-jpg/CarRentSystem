@@ -152,7 +152,7 @@ npm run dev
 
 **Abdulrahman Asfaw**
 GitHub: [https://github.com/adehabeshi20-jpg](https://github.com/adehabeshi20-jpg)
-Email: [your-email@example.com](mailto:your-email@example.com)
+
 
 ---
 
