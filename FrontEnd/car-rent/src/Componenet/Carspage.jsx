@@ -8,10 +8,11 @@ import { useNavigate } from "react-router-dom";
 const Carspage = () => {
   const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(true);
-   const navigate = useNavigate();
+  const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL; 
 
   useEffect(() => {
-    axios.get("http://localhost:2530/cars")
+    axios.get(`${API_URL}/cars`)
       .then((res) => {
         setCars(res.data.cars);
         setLoading(false);
@@ -20,22 +21,21 @@ const Carspage = () => {
         console.error(err);
         setLoading(false);
       });
-  }, []);
+  }, [API_URL]);
 
-    
   const handleBook = (carId) => {
     const token = localStorage.getItem("userToken");
-
     if (!token) {
       navigate("/login", { state: { redirectTo: `/user/Booking/${carId}` } });
     } else {
       navigate(`/user/Booking/${carId}`);
     }
   };
-if (loading) return <p className="text-center mt-10">Loading cars...</p>;
+
+  if (loading) return <p className="text-center mt-10">Loading cars...</p>;
 
   return (
-    <div className="w-full min-h-screen  bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-600">
+    <div className="w-full min-h-screen bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-600">
       <img
         src={primumcar}
         alt="Premium Car"
@@ -58,8 +58,9 @@ if (loading) return <p className="text-center mt-10">Loading cars...</p>;
               className="border rounded-lg shadow-lg overflow-hidden bg-white transform hover:scale-105 transition-all"
             >
               <img
-                src={`http://localhost:2530/cars/${car.image_url}`}
+                src={`${API_URL}/cars/${car.image_url}`}
                 alt={car.car_name}
+                onError={(e) => { e.target.onerror = null; e.target.src = primumcar; }}
                 className="w-full h-56 object-cover"
               />
 
@@ -83,11 +84,13 @@ if (loading) return <p className="text-center mt-10">Loading cars...</p>;
                 </div>
               </div>
 
-              <button onClick={() => handleBook(car.id)}
+              <button
+                onClick={() => handleBook(car.id)}
                 type="button"
                 className="w-full mb-4 bg-gradient-to-r from-green-400 to-blue-500 
-                            hover:from-pink-500 hover:to-yellow-500 py-2 text-white 
-                            font-bold rounded transition-all duration-300">
+                           hover:from-pink-500 hover:to-yellow-500 py-2 text-white 
+                           font-bold rounded transition-all duration-300"
+              >
                 Book Now
               </button>
             </div>

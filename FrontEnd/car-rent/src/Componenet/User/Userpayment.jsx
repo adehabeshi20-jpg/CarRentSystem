@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
-import jwtDecode from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 const UserPayment = () => {
 const { bookingId } = useParams();
