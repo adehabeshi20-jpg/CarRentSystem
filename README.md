@@ -16,7 +16,7 @@ To develop a full-stack web application for managing car rentals efficiently. Th
 **Backend:** Node.js, Express.js
 **Database:** MySQL
 **Authentication & Security:** JWT, bcrypt, dotenv, helmet, express-validator
-**Other Tools:** Nodemon, Multer, CORS
+**Other Tools:** Nodemon, CORS
 
 ---
 
